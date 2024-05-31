@@ -1,6 +1,5 @@
 # ChestyBot: Telegram Bot
 
-![Imagen](images.jpg)
 
 ChestyBot es un bot de Telegram diseñado para proporcionar diversas funcionalidades, incluyendo búsqueda de videos en YouTube, interacción con Instagram, manejo de usuarios y más.
 
@@ -45,3 +44,6 @@ Recuerda que tienes que poner el token de tu bot que te dió botfather en la par
 
 ```sh
 pkg install python
+
+```
+Añade 1 imagen que desees en la carpeta "imágenes uwu"
