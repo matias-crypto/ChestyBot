@@ -38,7 +38,7 @@ cd ChestyBot
 python index.py
 
 ```
-Recuerda que tienes que poner el token de tu bot que te dió botfather en la parte donde dice '7241645978:AAGtwfh4Zj8p--qnecrgEsc5QrJUpgBdPD4' en el archivo index.py, para que sea de tu posesion el bot y no publico (Recomiendo que lo hagan apenas instalen al bot)
+Recuerda que tienes que poner el token de tu bot que te dió botfather en la parte donde dice '7241645978:AAGtwfh4Zj8p--qnecrgEsc5QrJUpgBdPD4' en el archivo index.py, para que sea de tu posesion el bot y no publico (Recomiendo que lo hagan apenas instalen al bot) Prueba el bot con el token de este repo aquí http://t.me/Hshshsjshs_bot o prueba al bot oficial http://t.me/Sjsjsjsjsjsjdjuujjjjjj_bot, o unete al grupo oficial (https://t.me/+PZP6MBpB4vUxZTkx)
 
 # Y instala python si es que no lo tienes instalado
 
@@ -47,3 +47,5 @@ pkg install python
 
 ```
 Añade 1 imagen que desees en la carpeta "imágenes uwu"
+
+(TIENES QUE PONER LA RUTA CORRECTA DE LAS IMÁGENES SINO NO ANDARÁ EL MENÚ O EL COMANDO IMAGE)
