@@ -36,7 +36,12 @@ cd ChestyBot-Telegram-bot
 ### Inicia al bot
 
 ```sh
-index.py
+python index.py
 
 ```
-Recuerda que tienes que poner el token de tu bot que te dió botfather en la parte donde dice 'tokendelbot'
+Recuerda que tienes que poner el token de tu bot que te dió botfather en la parte donde dice 'tokendelbot' en el archivo index.py 
+
+# Y instala python si es que no lo tienes instalado
+
+```sh
+pkg install python
