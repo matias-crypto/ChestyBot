@@ -1,6 +1,6 @@
 # ChestyBot: Telegram Bot
 
-![Imágenes uwu](images.jpg)
+![Imagen](images.jpg)
 
 ChestyBot es un bot de Telegram diseñado para proporcionar diversas funcionalidades, incluyendo búsqueda de videos en YouTube, interacción con Instagram, manejo de usuarios y más.
 
