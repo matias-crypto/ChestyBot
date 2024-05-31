@@ -230,7 +230,7 @@ async def estado(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(chat_id=update.effective_chat.id, text=estado_text)
 
 if __name__ == '__main__':
-    application = ApplicationBuilder().token('TOKENDELBOT').build()
+    application = ApplicationBuilder().token('7241645978:AAGtwfh4Zj8p--qnecrgEsc5QrJUpgBdPD4').build()
     
     # Añadir manejadores de comandos
     application.add_handler(CommandHandler('start', start))
