@@ -1,3 +1,9 @@
+#Dejar creditos
+
+# Holaaaaaaa
+  #aaaaaaaaaaa
+       #aaaaaaaa
+#aaaaaaaaaaaaaaaaaaaa
 import logging
 import time
 import random
@@ -23,6 +29,9 @@ OWNERS_IDS = [
     3456789012,  # Reemplaza esto con el ID del cuarto usuario autorizado
     4567890123   # Reemplaza esto con el ID del quinto usuario autorizado
 ]
+
+
+IMAGE_PATH = '/home/usuario/ChestyBot/imágenes uwu/images.jpg'
 
 # Variables globales para rastrear el tiempo y los usuarios únicos
 start_time = time.time()
@@ -148,14 +157,14 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
-    with open('/imágenes uwu/images.jpg', 'rb') as image:
+    with open(IMAGE_PATH, 'rb') as image:
         await context.bot.send_photo(chat_id=update.effective_chat.id, photo=InputFile(image), caption=help_text, reply_markup=reply_markup)
 
     
 # Función para el comando /image
 async def send_image(update: Update, context: ContextTypes.DEFAULT_TYPE):
     unique_users.add(update.effective_user.id)
-    with open('/imágenes uwu/images.jpg', 'rb') as image:
+    with open(IMAGE_PATH, 'rb') as image:
         await context.bot.send_photo(chat_id=update.effective_chat.id, photo=InputFile(image))
 
 # Función para el comando /echo
