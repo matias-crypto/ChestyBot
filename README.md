@@ -38,7 +38,7 @@ cd ChestyBot
 python index.py
 
 ```
-Recuerda que tienes que poner el token de tu bot que te dió botfather en la parte donde dice 'tokendelbot' en el archivo index.py 
+Recuerda que tienes que poner el token de tu bot que te dió botfather en la parte donde dice '7241645978:AAGtwfh4Zj8p--qnecrgEsc5QrJUpgBdPD4' en el archivo index.py, para que sea de tu posesion el bot y no publico
 
 # Y instala python si es que no lo tienes instalado
 
