@@ -30,7 +30,7 @@ pip install youtube-search-python pydub pytube python-telegram-bot
 ### 3. Dirigete a la carpeta del bot
 
 ```sh
-cd ChestyBot-Telegram-bot
+cd ChestyBot
 ```
 ### Inicia al bot
 
