@@ -148,14 +148,14 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
-    with open('/storage/emulated/0/telgraa/archivos/image1.jpg', 'rb') as image:
+    with open('/imágenes uwu/images.jpg', 'rb') as image:
         await context.bot.send_photo(chat_id=update.effective_chat.id, photo=InputFile(image), caption=help_text, reply_markup=reply_markup)
 
     
 # Función para el comando /image
 async def send_image(update: Update, context: ContextTypes.DEFAULT_TYPE):
     unique_users.add(update.effective_user.id)
-    with open('/storage/emulated/0/telgraa/archivos/image1.jpg', 'rb') as image:
+    with open('/imágenes uwu/images.jpg', 'rb') as image:
         await context.bot.send_photo(chat_id=update.effective_chat.id, photo=InputFile(image))
 
 # Función para el comando /echo
