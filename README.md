@@ -39,4 +39,4 @@ cd ChestyBot-Telegram-bot
 index.py
 
 ```
-# Recuerda que tienes que poner el token de tu bot que te dió botfather en la parte donde dice 'tokendelbot'
+Recuerda que tienes que poner el token de tu bot que te dió botfather en la parte donde dice 'tokendelbot'
