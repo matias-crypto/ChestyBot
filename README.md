@@ -25,18 +25,18 @@ git clone https://github.com/matias-crypto/ChestyBot
 ```
 ### 2. Instala las dependencias necesarias.
 
-sh
+```sh
 pip install youtube-search-python pydub pytube python-telegram-bot
-
+```
 ### 3. Dirigete a la carpeta del bot
 
-sh
+```sh
 cd ChestyBot-Telegram-bot
-
+```
 ### Inicia al bot
 
-sh
+```sh
 index.py
 
-
+```
 # Recuerda que tienes que poner el token de tu bot que te dió botfather en la parte donde dice 'tokendelbot'
