@@ -21,3 +21,22 @@ Sigue estos pasos para instalar y ejecutar ChestyBot en tu entorno local:
 
 ```sh
 git clone https://github.com/matias-crypto/ChestyBot
+
+```
+### 2. Instala las dependencias necesarias.
+
+sh
+pip install youtube-search-python pydub pytube python-telegram-bot
+
+### 3. Dirigete a la carpeta del bot
+
+sh
+cd ChestyBot-Telegram-bot
+
+### Inicia al bot
+
+sh
+index.py
+
+
+# Recuerda que tienes que poner el token de tu bot que te dió botfather en la parte donde dice 'tokendelbot'
