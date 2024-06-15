@@ -46,6 +46,6 @@ Recuerda que tienes que poner el token de tu bot que te dió botfather en la par
 pkg install python
 
 ```
-Añade 1 imagen que desees en la carpeta "imágenes uwu"
+Clona el repositorio y crea una carpeta y añade imagenes para el menu y el comando image
 
 (TIENES QUE PONER LA RUTA CORRECTA DE LAS IMÁGENES SINO NO ANDARÁ EL MENÚ O EL COMANDO IMAGE)
