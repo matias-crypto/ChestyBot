@@ -1,9 +1,3 @@
-#Dejar creditos
-
-# Holaaaaaaa
-  #aaaaaaaaaaa
-       #aaaaaaaa
-#aaaaaaaaaaaaaaaaaaaa
 import logging
 import time
 import random
@@ -23,21 +17,18 @@ logging.basicConfig(
 )
 
 OWNERS_IDS = [
-    6996992405,  # Reemplaza esto con el ID del primer usuario autorizado
-    6085506230,  # Reemplaza esto con el ID del segundo usuario autorizado
-    2345678901,  # Reemplaza esto con el ID del tercer usuario autorizado
-    3456789012,  # Reemplaza esto con el ID del cuarto usuario autorizado
-    4567890123   # Reemplaza esto con el ID del quinto usuario autorizado
+    6996992405,
+    6085506230,
+    2345678901,
+    3456789012,
+    4567890123
 ]
-
 
 IMAGE_PATH = '/home/usuario/ChestyBot/imágenes uwu/images.jpg'
 
-# Variables globales para rastrear el tiempo y los usuarios únicos
 start_time = time.time()
 unique_users = set()
 
-# Función para el comando /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     unique_users.add(update.effective_user.id)
     welcome_text = "Hola, soy un bot. ¿En qué puedo ayudarte?\n\nEscribe '/help' para ver mis comandos"
@@ -45,7 +36,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     reply_markup = InlineKeyboardMarkup(keyboard)
     await context.bot.send_message(chat_id=update.effective_chat.id, text=welcome_text, reply_markup=reply_markup)
 
-# funcion para buscar en Instagram 
 async def search_instagram(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if len(context.args) == 0:
         await context.bot.send_message(chat_id=update.effective_chat.id, text="Por favor, proporciona el texto de búsqueda.")
@@ -66,9 +56,7 @@ async def search_instagram(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await context.bot.send_message(chat_id=update.effective_chat.id, text=message_text)
     else:
         await context.bot.send_message(chat_id=update.effective_chat.id, text="No se encontraron videos de Instagram para el texto de búsqueda.")
-   
-        
-             # Función para el comando /ban
+
 async def ban(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     if user_id in OWNERS_IDS:
@@ -81,7 +69,6 @@ async def ban(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         await context.bot.send_message(chat_id=update.effective_chat.id, text="No tienes permiso para usar este comando.")
 
-# Función para el comando /unban
 async def unban(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     if user_id in OWNERS_IDS:
@@ -97,7 +84,6 @@ async def unban(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         await context.bot.send_message(chat_id=update.effective_chat.id, text="No tienes permiso para usar este comando.")
 
-# Función para el comando /broadcast
 async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     if user_id in OWNERS_IDS:
@@ -110,18 +96,16 @@ async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await context.bot.send_message(chat_id=update.effective_chat.id, text="Por favor, proporciona el mensaje a enviar.")
     else:
         await context.bot.send_message(chat_id=update.effective_chat.id, text="No tienes permiso para usar este comando.")
-             
-# Función para el comando /searchmusic
 
 async def search_music(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if len(context.args) == 0:
         await context.bot.send_message(chat_id=update.effective_chat.id, text="Por favor, proporciona el nombre de la canción o del video.")
         return
-    
+
     query = " ".join(context.args)
     videos_search = VideosSearch(query, limit=1)
     result = videos_search.result()
-    
+
     if result['result']:
         video_info = result['result'][0]
         video_title = video_info['title']
@@ -130,8 +114,7 @@ async def search_music(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await context.bot.send_message(chat_id=update.effective_chat.id, text=message_text)
     else:
         await context.bot.send_message(chat_id=update.effective_chat.id, text="No se encontraron resultados.")
-        
-# Función para el comando /help
+
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     help_text = (
         "ChestyBot: Telegram bot\n\n"
@@ -149,7 +132,6 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "/ppt - Piedra, papel o tijera\n"
         "/ban/unban - Banear/desbanear usuarios (solo owners del bot)\n"
         "/broadcast - enviar mensajes a usuarios baneados (solo owners)"
-        
     )
 
     keyboard = [
@@ -160,33 +142,24 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     with open(IMAGE_PATH, 'rb') as image:
         await context.bot.send_photo(chat_id=update.effective_chat.id, photo=InputFile(image), caption=help_text, reply_markup=reply_markup)
 
-    
-# Función para el comando /image
 async def send_image(update: Update, context: ContextTypes.DEFAULT_TYPE):
     unique_users.add(update.effective_user.id)
     with open(IMAGE_PATH, 'rb') as image:
         await context.bot.send_photo(chat_id=update.effective_chat.id, photo=InputFile(image))
 
-# Función para el comando /echo
 async def echo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     unique_users.add(update.effective_user.id)
     await context.bot.send_message(chat_id=update.effective_chat.id, text=update.message.text)
 
-# comando ppt
 async def ppt(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    # Generar la opción del bot (piedra, papel o tijera)
     options = ["piedra", "papel", "tijera"]
     bot_choice = random.choice(options)
-
-    # Obtener la elección del usuario
     user_choice = context.args[0].lower() if context.args else None
 
-    # Verificar si la elección del usuario es válida
     if user_choice not in options:
         await context.bot.send_message(chat_id=update.effective_chat.id, text="Por favor, elige entre 'piedra', 'papel' o 'tijera'.")
         return
 
-    # Determinar el resultado del juego
     if user_choice == bot_choice:
         result_text = f"Empate! Ambos elegimos {user_choice}."
     elif (user_choice == "piedra" and bot_choice == "tijera") or (user_choice == "papel" and bot_choice == "piedra") or (user_choice == "tijera" and bot_choice == "papel"):
@@ -194,11 +167,8 @@ async def ppt(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         result_text = f"¡Perdiste! Elegiste {user_choice} y yo elegí {bot_choice}."
 
-    # Enviar el resultado del juego
     await context.bot.send_message(chat_id=update.effective_chat.id, text=result_text)
 
-
-# Función para el comando /info
 async def info(update: Update, context: ContextTypes.DEFAULT_TYPE):
     unique_users.add(update.effective_user.id)
     info_text = (
@@ -207,12 +177,10 @@ async def info(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
     await context.bot.send_message(chat_id=update.effective_chat.id, text=info_text)
 
-# Función para el comando /stop
 async def stop(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(chat_id=update.effective_chat.id, text="Deteniendo el bot...")
     context.application.stop()
 
-# Función para el comando /setname exclusivo para el usuario autorizado
 async def set_name(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id in OWNERS_IDS:
         if len(context.args) == 0:
@@ -224,14 +192,13 @@ async def set_name(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         await context.bot.send_message(chat_id=update.effective_chat.id, text="No tienes permiso para usar este comando.")
 
-# Función para el comando /estado
 async def estado(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elapsed_time = time.time() - start_time
     elapsed_hours = int(elapsed_time // 3600)
     elapsed_minutes = int((elapsed_time % 3600) // 60)
     elapsed_seconds = int(elapsed_time % 60)
     user_count = len(unique_users)
-    
+
     estado_text = (
         f"El bot ha estado activo por: {elapsed_hours} horas, {elapsed_minutes} minutos y {elapsed_seconds} segundos.\n"
         f"Número de usuarios que interactuaron con el bot: {user_count}"
@@ -240,9 +207,8 @@ async def estado(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 if __name__ == '__main__':
     application = ApplicationBuilder().token('7241645978:AAGtwfh4Zj8p--qnecrgEsc5QrJUpgBdPD4').build()
-    
-    # Añadir manejadores de comandos
-    application.add_handler(CommandHandler('start', start))
+
+        application.add_handler(CommandHandler('start', start))
     application.add_handler(CommandHandler('help', help_command))
     application.add_handler(CommandHandler('image', send_image))
     application.add_handler(CommandHandler('echo', echo))
